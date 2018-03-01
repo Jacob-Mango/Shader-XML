@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shader type="fragment">
 	<imports>
-		<import>texture/gammacorrecttexture</import>
-		<import>texture/gammacorrecttexturergb</import>
-		<import>texture/albedomap</import>
-		<import>texture/metallicmap</import>
-		<import>texture/normalmap</import>
+		<import>texture/GammaCorrect</import>
+		<import>texture/GetNormal</import>
+		<import>texture/Texture</import>
+		<import>math/BreakFloat4</import>
+		<import>math/BreakFloat3</import>
+		<import>math/BreakFloat2</import>
+		<import>math/MakeFloat4</import>
+		<import>math/MakeFloat3</import>
+		<import>math/MakeFloat2</import>
 	</imports>
 	<s_outputs>
 		<output>
@@ -186,168 +190,182 @@
 	</fields>
 	<main_instruction>
 		<instruction>
-			<type>Set_By_Func</type>
-			<out_field>g_Attributes.position</out_field>
+			<type>Call_Func</type>
 			<call_func>
-				<func_name>GetXYZ</func_name>
+				<func_name>BreakFloat4</func_name>
 				<inputs>
 					<input>
-						<field>
-							<location>0</location>
-							<name>fs_in.position</name>
-						</field>
+						<location>0</location>
+						<name>fs_in.position</name>
+					</input>
+				</inputs>
+				<outputs>
+					<output>
+						<location>0</location>
+						<name>t_x</name>
+					</output>
+					<output>
+						<location>1</location>
+						<name>t_y</name>
+					</output>
+					<output>
+						<location>2</location>
+						<name>t_z</name>
+					</output>
+				</outputs>
+			</call_func>
+		</instruction>
+		<instruction>
+			<type>Set_By_Func</type>
+			<set_field>g_Attributes.position</set_field>
+			<call_func>
+				<func_name>MakeFloat3</func_name>
+				<inputs>
+					<input>
+						<location>0</location>
+						<name>t_x</name>
+					</input>
+					<input>
+						<location>1</location>
+						<name>t_y</name>
+					</input>
+					<input>
+						<location>2</location>
+						<name>t_z</name>
 					</input>
 				</inputs>
 			</call_func>
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>g_Attributes.normal</out_field>
+			<set_field>g_Attributes.normal</set_field>
 			<call_func>
 				<func_name>Texture</func_name>
 				<inputs>
 					<input>
-						<field>
-							<location>0</location>
-							<name>u_NormalMap</name>
-						</field>
+						<location>0</location>
+						<name>u_NormalMap</name>
 					</input>
 					<input>
-						<field>
-							<location>1</location>
-							<name>fs_in.uv</name>
-						</field>
+						<location>1</location>
+						<name>fs_in.uv</name>
 					</input>
 				</inputs>
 			</call_func>
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>g_Attributes.normal</out_field>
+			<set_field>g_Attributes.normal</set_field>
 			<call_func>
 				<func_name>GetNormal</func_name>
 				<inputs>
 					<input>
-						<field>
-							<location>0</location>
-							<name>g_Attributes.normal</name>
-						</field>
+						<location>0</location>
+						<name>g_Attributes.normal</name>
 					</input>
 					<input>
-						<field>
-							<location>1</location>
-							<name>fs_in.normal</name>
-						</field>
+						<location>1</location>
+						<name>fs_in.normal</name>
 					</input>
 					<input>
-						<field>
-							<location>2</location>
-							<name>fs_in.binormal</name>
-						</field>
+						<location>2</location>
+						<name>fs_in.binormal</name>
 					</input>
 					<input>
-						<field>
-							<location>3</location>
-							<name>fs_in.tangent</name>
-						</field>
+						<location>3</location>
+						<name>fs_in.tangent</name>
 					</input>
 				</inputs>
 			</call_func>
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>g_Material.albedo</out_field>
+			<set_field>g_Material.albedo</set_field>
 			<call_func>
 				<func_name>Texture</func_name>
 				<inputs>
 					<input>
-						<field>
-							<location>0</location>
-							<name>u_AlbedoMap</name>
-						</field>
+						<location>0</location>
+						<name>u_AlbedoMap</name>
 					</input>
 					<input>
-						<field>
-							<location>1</location>
-							<name>fs_in.uv</name>
-						</field>
+						<location>1</location>
+						<name>fs_in.uv</name>
 					</input>
 				</inputs>
 			</call_func>
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>g_Material.albedo</out_field>
+			<set_field>g_Material.albedo</set_field>
 			<call_func>
 				<func_name>GammaCorrect</func_name>
 				<inputs>
 					<input>
-						<field>
-							<location>0</location>
-							<name>g_Material.albedo</name>
-						</field>
+						<location>0</location>
+						<name>g_Material.albedo</name>
 					</input>
 					<input>
-						<field>
-							<location>1</location>
-							<name>u_Gamma</name>
-						</field>
+						<location>1</location>
+						<name>u_Gamma</name>
 					</input>
 				</inputs>
 			</call_func>
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>g_Material.metallic</out_field>
+			<set_field>g_Material.metallic</set_field>
 			<call_func>
 				<func_name>Texture</func_name>
 				<inputs>
 					<input>
-						<field>
-							<location>0</location>
-							<name>u_MetallicMap</name>
-						</field>
+						<location>0</location>
+						<name>u_MetallicMap</name>
 					</input>
 					<input>
-						<field>
-							<location>1</location>
-							<name>fs_in.uv</name>
-						</field>
+						<location>1</location>
+						<name>fs_in.uv</name>
 					</input>
 				</inputs>
 			</call_func>
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>g_Material.metallic</out_field>
+			<set_field>g_Material.metallic</set_field>
 			<call_func>
 				<func_name>GammaCorrect</func_name>
 				<inputs>
 					<input>
-						<field>
-							<location>0</location>
-							<name>g_Material.metallic</name>
-						</field>
+						<location>0</location>
+						<name>g_Material.metallic</name>
 					</input>
 					<input>
-						<field>
-							<location>1</location>
-							<name>u_Gamma</name>
-						</field>
+						<location>1</location>
+						<name>u_Gamma</name>
 					</input>
 				</inputs>
 			</call_func>
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>gPosition</out_field>
+			<set_field>gPosition</set_field>
 			<call_func>
 				<func_name>MakeFloat4</func_name>
 				<inputs>
 					<input>
-						<field>g_Attributes.position</field>
+						<location>0</location>
+						<name>g_Attributes.position.x</name>
 					</input>
 					<input>
+						<location>1</location>
+						<name>g_Attributes.position.y</name>
+					</input>
+					<input>
+						<location>2</location>
+						<name>g_Attributes.position.z</name>
+					</input>
+					<input>
+						<location>3</location>
 						<value>1.0</value>
 					</input>
 				</inputs>
@@ -355,14 +373,24 @@
 		</instruction>
 		<instruction>
 			<type>Set_By_Func</type>
-			<out_field>gNormal</out_field>
+			<set_field>gNormal</set_field>
 			<call_func>
 				<func_name>MakeFloat4</func_name>
 				<inputs>
 					<input>
-						<field>g_Attributes.normal</field>
+						<location>0</location>
+						<name>g_Attributes.position.x</name>
 					</input>
 					<input>
+						<location>1</location>
+						<name>g_Attributes.position.y</name>
+					</input>
+					<input>
+						<location>2</location>
+						<name>g_Attributes.position.z</name>
+					</input>
+					<input>
+						<location>3</location>
 						<value>1.0</value>
 					</input>
 				</inputs>
@@ -370,13 +398,13 @@
 		</instruction>
 		<instruction>
 			<type>Set_By_Field</type>
-			<out_field>gAlebdo</out_field>
+			<set_field>gAlebdo</set_field>
 			<field>g_Material.albedo</field>
 		</instruction>
 		<instruction>
 			<type>Set_By_Field</type>
-			<out_field>gMetallic</out_field>
-			<field>g_Material.metallic</field>
+			<set_field>gMetallic</set_field>
+			<in_field>g_Material.metallic</in_field>
 		</instruction>
 	</main_instruction>
 </shader> 

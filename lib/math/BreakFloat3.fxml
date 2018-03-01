@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <function>
-	<name>BreakFloat4</name>
+	<name>BreakFloat3</name>
 	<inputs>
 		<input>
-			<disp_name>FLOAT4</disp_name>
+			<disp_name>FLOAT3</disp_name>
 			<location>0</location>
-			<type>FLOAT4</type>
+			<type>FLOAT3</type>
 			<name>v</name>
 		</input>
 	</inputs>
@@ -27,12 +27,6 @@
 			<location>2</location>
 			<type>Float</type>
 			<name>z</name>
-		</output>
-		<output>
-			<disp_name>W</disp_name>
-			<location>3</location>
-			<type>Float</type>
-			<name>w</name>
 		</output>
 	</outputs>
 </function>

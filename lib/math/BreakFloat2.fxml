@@ -3,9 +3,9 @@
 	<name>BreakFloat4</name>
 	<inputs>
 		<input>
-			<disp_name>FLOAT4</disp_name>
+			<disp_name>FLOAT2</disp_name>
 			<location>0</location>
-			<type>FLOAT4</type>
+			<type>FLOAT2</type>
 			<name>v</name>
 		</input>
 	</inputs>
@@ -21,18 +21,6 @@
 			<location>1</location>
 			<type>Float</type>
 			<name>y</name>
-		</output>
-		<output>
-			<disp_name>Z</disp_name>
-			<location>2</location>
-			<type>Float</type>
-			<name>z</name>
-		</output>
-		<output>
-			<disp_name>W</disp_name>
-			<location>3</location>
-			<type>Float</type>
-			<name>w</name>
 		</output>
 	</outputs>
 </function>
