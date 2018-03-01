@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function>
+    <name>MakeFloat4</name>
+    <inputs>
+		<input>
+			<disp_name>X</disp_name>
+			<location>0</location>
+			<type>Float</type>
+			<name>x</name>
+		</input>
+		<input>
+			<disp_name>Y</disp_name>
+			<location>1</location>
+			<type>Float</type>
+			<name>y</name>
+		</input>
+		<input>
+			<disp_name>Z</disp_name>
+			<location>2</location>
+			<type>Float</type>
+			<name>z</name>
+		</input>
+		<input>
+			<disp_name>W</disp_name>
+			<location>3</location>
+			<type>Float</type>
+			<name>w</name>
+		</input>
+    </inputs>
+    <outputs>
+		<output>
+			<disp_name>Output</disp_name>
+			<location>0</location>
+			<type>FLOAT4</type>
+			<name></name>
+		</output>
+    </outputs>
+</function>

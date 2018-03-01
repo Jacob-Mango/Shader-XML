@@ -1,0 +1,1 @@
+return vec4(x, y, z, w);

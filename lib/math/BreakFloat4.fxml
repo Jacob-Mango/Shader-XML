@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function>
+    <name>BreakFloat4</name>
+    <inputs>
+		<input>
+			<disp_name>Float4</disp_name>
+			<location>0</location>
+			<type>FLOAT4</type>
+			<name>v</name>
+		</input>
+    </inputs>
+    <outputs>
+		<output>
+			<disp_name>X</disp_name>
+			<location>0</location>
+			<type>Float</type>
+			<name>x</name>
+		</output>
+		<output>
+			<disp_name>Y</disp_name>
+			<location>1</location>
+			<type>Float</type>
+			<name>y</name>
+		</output>
+		<output>
+			<disp_name>Z</disp_name>
+			<location>2</location>
+			<type>Float</type>
+			<name>z</name>
+		</output>
+		<output>
+			<disp_name>W</disp_name>
+			<location>3</location>
+			<type>Float</type>
+			<name>w</name>
+		</output>
+    </outputs>
+</function>

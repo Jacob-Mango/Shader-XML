@@ -1,0 +1,1 @@
+return normalize(mat3(binormal, tangent, normal) * ((normalSample * 2.0) - 1.0));

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function>
+	<disp_name>Texture</disp_name>
+	<name>Texture</name>
+	<imports>
+	</imports>
+	<inputs>
+		<input>
+			<disp_name>Texture</disp_name>
+			<location>0</location>
+			<type>Texture2D</type>
+			<name>tex</name>
+		</input>
+		<input>
+			<disp_name>Texture Coordinates</disp_name>
+			<location>1</location>
+			<type>FLOAT2</type>
+			<name>uv</name>
+		</input>
+	</inputs>
+	<outputs>
+		<output>
+			<disp_name>Output</disp_name>
+			<location>0</location>
+			<type>FLOAT4</type>
+			<name></name>
+		</output>
+	</outputs>
+</function>

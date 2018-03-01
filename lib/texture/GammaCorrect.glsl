@@ -1,0 +1,1 @@
+return pow(sample, gamma);

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function>
+	<disp_name>Gamma Correct</disp_name>
+	<name>GammeCorrect</name>
+	<inputs>
+		<input>
+			<disp_name>Sample</disp_name>
+			<location>0</location>
+			<type>FLOAT4</type>
+			<name>sample</name>
+		</input>
+		<input>
+			<disp_name>Gamma</disp_name>
+			<location>1</location>
+			<type>FLOAT</type>
+			<name>gamma</name>
+		</input>
+	</inputs>
+	<outputs>
+		<output>
+			<disp_name>Output</disp_name>
+			<location>0</location>
+			<type>FLOAT4</type>
+			<name></name>
+		</output>
+	</outputs>
+</function>
